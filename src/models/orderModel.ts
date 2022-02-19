@@ -38,7 +38,7 @@ export class orderModel {
     }
   }
 
-  async create(order:order): Promise<order> {
+  async create(order: order): Promise<order> {
     try {
       const conn = await DB.connect();
       const sql =

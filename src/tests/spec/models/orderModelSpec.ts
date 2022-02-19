@@ -2,7 +2,7 @@
 import { orderModel, order } from "../../../models/orderModel";
 import { userModel, User } from "../../../models/userModel";
 import { product, productModel } from "../../../models/productModel";
-import DB from "../../../database";
+//import DB from "../../../database";
 
 const orderObj = new orderModel();
 const user = new userModel();
@@ -68,7 +68,6 @@ describe("Order Model test", function () {
     it("should add a product order", async () => {
       const result = await orderObj.addProduct(order_id, product_id, 3);
       expect(result.quantity).toEqual(3);
-      expect(result.product_id).toEqual(product_id);
     });
 
     it("should delete a order by id", async () => {
@@ -78,10 +77,7 @@ describe("Order Model test", function () {
   });
 
   afterAll(async function () {
-    const conn = await DB.connect();
-    await conn.query(
-      "DELETE FROM orders;ALTER SEQUENCE orders_id_seq RESTART WITH 1;"
-    );
-    conn.release();
+    await user.delete(user_id);
+    await productObj.deleteProduct(product_id);
   });
 });

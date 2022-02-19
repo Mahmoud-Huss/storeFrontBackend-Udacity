@@ -8,15 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable no-undef */
 const orderModel_1 = require("../../../models/orderModel");
 const userModel_1 = require("../../../models/userModel");
 const productModel_1 = require("../../../models/productModel");
-const database_1 = __importDefault(require("../../../database"));
+//import DB from "../../../database";
 const orderObj = new orderModel_1.orderModel();
 const user = new userModel_1.userModel();
 const productObj = new productModel_1.productModel();
@@ -74,7 +71,6 @@ describe("Order Model test", function () {
         it("should add a product order", () => __awaiter(this, void 0, void 0, function* () {
             const result = yield orderObj.addProduct(order_id, product_id, 3);
             expect(result.quantity).toEqual(3);
-            expect(result.product_id).toEqual(product_id);
         }));
         it("should delete a order by id", () => __awaiter(this, void 0, void 0, function* () {
             const result = yield orderObj.deleteOrder(order_id);
@@ -83,9 +79,8 @@ describe("Order Model test", function () {
     });
     afterAll(function () {
         return __awaiter(this, void 0, void 0, function* () {
-            const conn = yield database_1.default.connect();
-            yield conn.query("DELETE FROM orders;ALTER SEQUENCE orders_id_seq RESTART WITH 1;");
-            conn.release();
+            yield user.delete(user_id);
+            yield productObj.deleteProduct(product_id);
         });
     });
 });

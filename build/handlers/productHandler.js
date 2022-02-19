@@ -46,7 +46,7 @@ const create = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const getProductsByCategory = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const category = _req.body.category;
+        const category = _req.query.category;
         const prodcutsByCategory = yield ProductObj.getProductsByCategory(category);
         res.status(200);
         res.json(prodcutsByCategory);
@@ -81,10 +81,10 @@ const deleteProduct = (_req, res) => __awaiter(void 0, void 0, void 0, function*
 });
 const productRoutes = (app) => {
     app.get("/products", getAllProducts);
-    app.get("/products/category", getProductsByCategory);
+    app.get("/products", getProductsByCategory);
     app.get("/products/top", getTopProducts);
     app.get("/products/:id", getProductById);
     app.post("/products", auth_1.authenticator, create);
-    app.delete("/products/:id", deleteProduct);
+    app.delete("/products/:id", auth_1.authenticator, deleteProduct);
 };
 exports.default = productRoutes;

@@ -8,22 +8,30 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Products
 
-- Index
-- Show (args: product id)
-- Create (args: Product)[token required]
-- [OPTIONAL] Top 5 most popular products
-- [OPTIONAL] Products by category (args: product category)
+- Index `'/products' [GET]`
+- Show (args: product id) `'/products/:id' [GET]`
+- Create (args: Product)[token required] `'/products' [POST]`
+- [OPTIONAL] Top 5 most popular products `'/products/top' [GET]`
+- [OPTIONAL] Products by category (args: product category) `'/products?category="categoryName"' [GET]`
+- Delete (args: product id) `'/products/:id' [DELETE]`
 
 #### Users
 
-- Index [token required]
-- Show (args: id)[token required]
-- Create (args: User)[token required]
+- Index [token required] `'/users/' [GET] (token)`
+- Show (args: id)[token required] `'/users/:id' [GET] (token)`
+- Create (args: User)[token required] `'/register' [POST] (token)`
+- Authenticate (args: user) `'/signin' [GET] (token)`
+- Delete (args: id) `'/users/:id' [Delete] (token)`
 
 #### Orders
 
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- Current Order by user (args: user id)[token required] `'/users/:id/current-order' [GET] (token)`
+- [OPTIONAL] Completed Orders by user (args: user id)[token required] `'/users/:id/complete-orders' [GET] (token)`
+- Index `'/users/:id/orders' [GET] (token)`
+- Create `'/users/:id/orders' [POST] (token)`
+- Add Product `'/orders/:id/products' [POST] (token)`
+- Update status `'/orders/:id/status' [POST] (token)`
+- Delete `'/orders/:id' [DELETE] (token)`
 
 ## Data Shapes
 
@@ -36,15 +44,21 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### User
 
-- id
-- firstName
-- lastName
-- password
+- id `SERIAL PRIMARY KEY`
+- firstName `VARCHAR`
+- lastName `VARCHAR`
+- username `VARCHAR`
+- password `VARCHAR`
 
 #### Orders
 
-- id
-- id of each product in the order
-- quantity of each product in the order
-- user_id
-- status of order (active or complete)
+- id `SERIAL PRIMARY KEY`
+- user_id `BIGINT`
+- status of order (active or complete) `VARCHAR(64)`
+
+### Order_products
+
+- id `SERIAL PRIMARY KEY`
+- product_id `BIGINT`
+- order_id `BIGINT`
+- quantity of each product in the order `INTEGER`

@@ -41,7 +41,7 @@ const create = async (_req: Request, res: Response): Promise<void> => {
 
 const getProductsByCategory = async (_req: Request, res: Response) => {
   try {
-    const category: string = _req.body.category;
+    const category: string = _req.query.category as string;
     const prodcutsByCategory = await ProductObj.getProductsByCategory(category);
 
     res.status(200);
@@ -81,11 +81,11 @@ const deleteProduct = async (_req: Request, res: Response): Promise<void> => {
 
 const productRoutes = (app: express.Application) => {
   app.get("/products", getAllProducts);
-  app.get("/products/category", getProductsByCategory);
-  app.get("/products/top", getTopProducts)
+  app.get("/products", getProductsByCategory);
+  app.get("/products/top", getTopProducts);
   app.get("/products/:id", getProductById);
   app.post("/products", authenticator, create);
-  app.delete("/products/:id", deleteProduct);
+  app.delete("/products/:id", authenticator, deleteProduct);
 };
 
 export default productRoutes;

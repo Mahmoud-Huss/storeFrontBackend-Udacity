@@ -20,7 +20,7 @@ const createOrder = async (_req: Request, res: Response): Promise<void> => {
   try {
     const user_id: number = parseInt(_req.params.id);
     const status: string = _req.body.status;
-    const order: order = await orderObj.create({user_id, status});
+    const order: order = await orderObj.create({ user_id, status });
 
     res.status(200);
     res.json(order);

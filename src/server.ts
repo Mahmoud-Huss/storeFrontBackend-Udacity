@@ -4,7 +4,7 @@ import { orderRoutes } from "./handlers/orderHandler";
 import productRoutes from "./handlers/productHandler";
 import userRoutes from "./handlers/userhandler";
 
-const PORT: number = /* process.env || */ 5050;
+const PORT: number =  process.env.PORT as unknown as number || 5050;
 export const app: express.Application = express();
 
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ orderRoutes(app);
 
 app.use(function (req, res) {
   res.status(404);
-  res.send("pageNotFound");
+  res.send("Page not found");
 });
 
 app.listen(PORT, () => {
