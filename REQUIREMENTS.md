@@ -37,10 +37,10 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Product
 
-- id
-- name
-- price
-- [OPTIONAL] category
+- id `SERIAL PRIMARY KEY`
+- name `VARCHAR`
+- price `INTEGER`
+- [OPTIONAL] category `VARCHAR`
 
 #### User
 
