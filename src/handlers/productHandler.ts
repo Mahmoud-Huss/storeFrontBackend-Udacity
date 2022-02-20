@@ -5,7 +5,6 @@ import { productModel, product } from "../models/productModel";
 const ProductObj = new productModel();
 
 const getAllProducts = async (_req: Request, res: Response): Promise<void> => {
-<<<<<<< HEAD
   try {
     const products = await ProductObj.index();
     res.status(200);
@@ -14,10 +13,8 @@ const getAllProducts = async (_req: Request, res: Response): Promise<void> => {
     res.status(400);
     throw new Error(`Could not get all products. Error: ${err}`);
   }
-=======
   const products = await ProductObj.index();
   res.json(products);
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
 };
 
 const getProductById = async (_req: Request, res: Response): Promise<void> => {

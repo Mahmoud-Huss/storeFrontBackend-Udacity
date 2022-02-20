@@ -8,11 +8,7 @@
     "build": "tsc",
     "prettify": "prettier --config .prettierrc src/**/*.ts --write",
     "lint": "eslint . --ext .ts",
-<<<<<<< HEAD
     "test": "db-migrate up && npm run build && npm run jasmine",
-=======
-    "test": "npm run build && npm run jasmine",
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
     "jasmine": "jasmine"
   },
   "repository": {
