@@ -32,7 +32,11 @@ describe("User Endpoints", function () {
         it("gets the api endpoint /users", () => __awaiter(this, void 0, void 0, function* () {
             //Get authorization token
             const signinRes = yield req
+<<<<<<< HEAD
                 .post("/signin")
+=======
+                .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
                 .send({ username: "MOZ", password: "password123" });
             //Send the request
             const res = yield req
@@ -42,14 +46,22 @@ describe("User Endpoints", function () {
         }));
         it("gets the api endpoint /signin", () => __awaiter(this, void 0, void 0, function* () {
             const res = yield req
+<<<<<<< HEAD
                 .post("/signin")
+=======
+                .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
                 .send({ username: "MOZ", password: "password123" });
             expect(res.status).toBe(200);
         }));
         it("gets the api endpoint /users/:id", () => __awaiter(this, void 0, void 0, function* () {
             //Get authorization token
             const signinRes = yield req
+<<<<<<< HEAD
                 .post("/signin")
+=======
+                .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
                 .send({ username: "MOZ", password: "password123" });
             //Send the request
             const res = yield req
@@ -59,7 +71,11 @@ describe("User Endpoints", function () {
         }));
         it("delete a user /users/:id", () => __awaiter(this, void 0, void 0, function* () {
             const signinRes = yield req
+<<<<<<< HEAD
                 .post("/signin")
+=======
+                .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
                 .send({ username: "MOZ", password: "password123" });
             const res = yield req
                 .delete(`/users/${user_id}`)

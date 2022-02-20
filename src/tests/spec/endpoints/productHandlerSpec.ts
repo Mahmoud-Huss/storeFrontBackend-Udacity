@@ -25,7 +25,11 @@ describe("Products Endpoints", function () {
 
     it("Creates a product through the endpoint /products", async () => {
       const signinRes = await req
+<<<<<<< HEAD
         .post("/signin")
+=======
+        .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
         .send({ username: "MOZ", password: "password123" });
       const res = await req
         .post("/products")
@@ -62,7 +66,11 @@ describe("Products Endpoints", function () {
 
     it("delete a product through  /products/:id", async () => {
       const signinRes = await req
+<<<<<<< HEAD
         .post("/signin")
+=======
+        .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
         .send({ username: "MOZ", password: "password123" });
       const res = await req
         .delete(`/products/${product_id}`)

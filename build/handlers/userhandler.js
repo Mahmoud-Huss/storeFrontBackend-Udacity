@@ -92,8 +92,13 @@ const authenticate = (_req, res) => __awaiter(void 0, void 0, void 0, function* 
 });
 const userRoutes = (app) => {
     app.get("/users", auth_1.authenticator, index);
+<<<<<<< HEAD
     app.get("/users/:id", auth_1.authenticator, getUser);
     app.post("/signin", authenticate);
+=======
+    app.get("/signin", authenticate);
+    app.get("/users/:id", auth_1.authenticator, getUser);
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
     app.post("/register", createUser);
     app.delete("/users/:id", auth_1.authenticator, deleteUser);
 };

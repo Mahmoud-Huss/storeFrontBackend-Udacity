@@ -36,7 +36,11 @@ describe("Products Endpoints", function () {
                 user_id = result.id;
                 //sign in
                 const signinRes = yield req
+<<<<<<< HEAD
                     .post("/signin")
+=======
+                    .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
                     .send({ username: "MOZ", password: "password123" });
                 token = "bearer " + signinRes.body;
             });

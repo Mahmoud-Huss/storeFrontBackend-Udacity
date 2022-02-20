@@ -1,7 +1,11 @@
 import DB from "../database";
 import bcrypt from "bcrypt";
 
+<<<<<<< HEAD
 export type User = {
+=======
+export interface User {
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
   id?: number;
   firstName: string;
   lastName: string;

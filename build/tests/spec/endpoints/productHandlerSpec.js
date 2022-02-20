@@ -37,7 +37,11 @@ describe("Products Endpoints", function () {
         });
         it("Creates a product through the endpoint /products", () => __awaiter(this, void 0, void 0, function* () {
             const signinRes = yield req
+<<<<<<< HEAD
                 .post("/signin")
+=======
+                .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
                 .send({ username: "MOZ", password: "password123" });
             const res = yield req
                 .post("/products")
@@ -68,7 +72,11 @@ describe("Products Endpoints", function () {
         }));
         it("delete a product through  /products/:id", () => __awaiter(this, void 0, void 0, function* () {
             const signinRes = yield req
+<<<<<<< HEAD
                 .post("/signin")
+=======
+                .get("/signin")
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
                 .send({ username: "MOZ", password: "password123" });
             const res = yield req
                 .delete(`/products/${product_id}`)

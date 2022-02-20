@@ -13,6 +13,7 @@ const auth_1 = require("../middlewares/auth");
 const productModel_1 = require("../models/productModel");
 const ProductObj = new productModel_1.productModel();
 const getAllProducts = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+<<<<<<< HEAD
     try {
         const products = yield ProductObj.index();
         res.status(200);
@@ -22,6 +23,10 @@ const getAllProducts = (_req, res) => __awaiter(void 0, void 0, void 0, function
         res.status(400);
         throw new Error(`Could not get all products. Error: ${err}`);
     }
+=======
+    const products = yield ProductObj.index();
+    res.json(products);
+>>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
 });
 const getProductById = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
