@@ -20,7 +20,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Index [token required] `'/users/' [GET] (token)`
 - Show (args: id)[token required] `'/users/:id' [GET] (token)`
 - Create (args: User)[token required] `'/register' [POST] (token)`
-- Authenticate (args: user) `'/signin' [GET] (token)`
+- Authenticate (args: user) `'/signin' [POST] (token) provide username and password in the body of the request `
 - Delete (args: id) `'/users/:id' [Delete] (token)`
 
 #### Orders
