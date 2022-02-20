@@ -92,7 +92,7 @@ const productRoutes = (app: express.Application) => {
   app.get("/products", getProductsByCategory);
   app.get("/products/top", getTopProducts);
   app.get("/products/:id", getProductById);
-  app.post("/products", authenticator, create);
+  app.post("/products", create);
   app.delete("/products/:id", authenticator, deleteProduct);
 };
 

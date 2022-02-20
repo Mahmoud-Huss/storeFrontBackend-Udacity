@@ -20,6 +20,7 @@ const req = (0, supertest_1.default)(server_1.app);
 const user = new userModel_1.userModel();
 let user_id;
 let product_id;
+let token;
 describe("Products Endpoints", function () {
     describe("/products request verbs", function () {
         beforeAll(function () {
@@ -33,16 +34,13 @@ describe("Products Endpoints", function () {
                 };
                 const result = yield user.create(u);
                 user_id = result.id;
+                const signinRes = yield req
+                    .post("/signin")
+                    .send({ username: "MOZ", password: "password123" });
+                token = "bearer " + signinRes.body;
             });
         });
         it("Creates a product through the endpoint /products", () => __awaiter(this, void 0, void 0, function* () {
-            const signinRes = yield req
-<<<<<<< HEAD
-                .post("/signin")
-=======
-                .get("/signin")
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
-                .send({ username: "MOZ", password: "password123" });
             const res = yield req
                 .post("/products")
                 .send({
@@ -50,7 +48,7 @@ describe("Products Endpoints", function () {
                 price: 20,
                 category: "tech",
             })
-                .set({ Authorization: "bearer " + signinRes.body });
+                .set({ Authorization: token });
             product_id = res.body.id;
             expect(res.status).toBe(200);
         }));
@@ -71,16 +69,9 @@ describe("Products Endpoints", function () {
             expect(res.status).toBe(200);
         }));
         it("delete a product through  /products/:id", () => __awaiter(this, void 0, void 0, function* () {
-            const signinRes = yield req
-<<<<<<< HEAD
-                .post("/signin")
-=======
-                .get("/signin")
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
-                .send({ username: "MOZ", password: "password123" });
             const res = yield req
                 .delete(`/products/${product_id}`)
-                .set({ Authorization: "bearer " + signinRes.body });
+                .set({ Authorization: token });
             expect(res.status).toBe(200);
         }));
         afterAll(function () {

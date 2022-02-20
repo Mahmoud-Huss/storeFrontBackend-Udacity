@@ -25,11 +25,7 @@ describe("Products Endpoints", function () {
 
       //sign in
       const signinRes = await req
-<<<<<<< HEAD
         .post("/signin")
-=======
-        .get("/signin")
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
         .send({ username: "MOZ", password: "password123" });
       token = "bearer " + signinRes.body;
     });
@@ -79,12 +75,12 @@ describe("Products Endpoints", function () {
     });
 
     it("Gets orders through /users/:id/complete-orders", async () => {
-        const res = await req
-          .get(`/users/${user_id}/orders`)
-          .set({ Authorization: token });
-        expect(res.status).toBe(200);
-      });
-  
+      const res = await req
+        .get(`/users/${user_id}/orders`)
+        .set({ Authorization: token });
+      expect(res.status).toBe(200);
+    });
+
     it("delete an order through  /orders/:id", async () => {
       const res = await req
         .delete(`/orders/${order_id}`)

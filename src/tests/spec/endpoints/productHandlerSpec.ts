@@ -8,6 +8,7 @@ const user = new userModel();
 
 let user_id: number;
 let product_id: number;
+let token: string;
 
 describe("Products Endpoints", function () {
   describe("/products request verbs", function () {
@@ -21,16 +22,13 @@ describe("Products Endpoints", function () {
       };
       const result = await user.create(u);
       user_id = result.id as number;
+      const signinRes = await req
+        .post("/signin")
+        .send({ username: "MOZ", password: "password123" });
+      token = "bearer " + signinRes.body;
     });
 
     it("Creates a product through the endpoint /products", async () => {
-      const signinRes = await req
-<<<<<<< HEAD
-        .post("/signin")
-=======
-        .get("/signin")
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
-        .send({ username: "MOZ", password: "password123" });
       const res = await req
         .post("/products")
         .send({
@@ -38,7 +36,7 @@ describe("Products Endpoints", function () {
           price: 20,
           category: "tech",
         })
-        .set({ Authorization: "bearer " + signinRes.body });
+        .set({ Authorization: token });
 
       product_id = res.body.id;
       expect(res.status).toBe(200);
@@ -46,13 +44,14 @@ describe("Products Endpoints", function () {
 
     it("Gets all products through endpoint /products", async () => {
       const res = await req.get("/products");
+
       expect(res.status).toBe(200);
     });
 
     it("Gets top 5 products through endpoint /products/top", async () => {
-        const res = await req.get("/products/top");
-        expect(res.status).toBe(200);
-      });
+      const res = await req.get("/products/top");
+      expect(res.status).toBe(200);
+    });
 
     it("Gets a product by id through /products/:id", async () => {
       const res = await req.get(`/products/${product_id}`);
@@ -65,22 +64,16 @@ describe("Products Endpoints", function () {
     });
 
     it("delete a product through  /products/:id", async () => {
-      const signinRes = await req
-<<<<<<< HEAD
-        .post("/signin")
-=======
-        .get("/signin")
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
-        .send({ username: "MOZ", password: "password123" });
+     
       const res = await req
         .delete(`/products/${product_id}`)
-        .set({ Authorization: "bearer " + signinRes.body });
+        .set({ Authorization: token });
 
       expect(res.status).toBe(200);
     });
 
     afterAll(async function () {
-        await user.delete(user_id);
-      });
+      await user.delete(user_id);
+    });
   });
 });

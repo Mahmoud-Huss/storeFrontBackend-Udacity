@@ -13,7 +13,6 @@ const auth_1 = require("../middlewares/auth");
 const productModel_1 = require("../models/productModel");
 const ProductObj = new productModel_1.productModel();
 const getAllProducts = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-<<<<<<< HEAD
     try {
         const products = yield ProductObj.index();
         res.status(200);
@@ -23,10 +22,8 @@ const getAllProducts = (_req, res) => __awaiter(void 0, void 0, void 0, function
         res.status(400);
         throw new Error(`Could not get all products. Error: ${err}`);
     }
-=======
     const products = yield ProductObj.index();
     res.json(products);
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
 });
 const getProductById = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -96,7 +93,7 @@ const productRoutes = (app) => {
     app.get("/products", getProductsByCategory);
     app.get("/products/top", getTopProducts);
     app.get("/products/:id", getProductById);
-    app.post("/products", auth_1.authenticator, create);
+    app.post("/products", create);
     app.delete("/products/:id", auth_1.authenticator, deleteProduct);
 };
 exports.default = productRoutes;

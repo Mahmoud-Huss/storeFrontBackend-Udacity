@@ -80,13 +80,8 @@ const authenticate = async (_req: Request, res: Response): Promise<void> => {
 
 const userRoutes = (app: Application) => {
   app.get("/users", authenticator, index);
-<<<<<<< HEAD
   app.get("/users/:id", authenticator, getUser);
   app.post("/signin", authenticate);
-=======
-  app.get("/signin", authenticate);
-  app.get("/users/:id", authenticator, getUser);
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
   app.post("/register", createUser);
   app.delete("/users/:id", authenticator, deleteUser);
 };
