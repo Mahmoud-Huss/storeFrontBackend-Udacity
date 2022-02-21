@@ -66,8 +66,8 @@ POSTGRES_HOST = 127.0.0.1
 POSTGRES_DB =  store_front
 POSTGRES_USER = store-front
 POSTGRES_PASSWORD = Hey@storefront
-//Database test
 
+//Database test
 ENV=test
 POSTGRES_TEST_HOST = 127.0.0.1
 POSTGRES_TEST_DB =  store_front_test
