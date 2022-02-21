@@ -46,6 +46,7 @@ We shall create the dev and test database.
     - `CREATE USER store-front WITH PASSWORD 'Hey@storefront';`
 - In psql run the following to create the dev and test database
     - `CREATE DATABASE store_front;`
+    - `CREATE DATABASE store_front_test;`
 - Connect to the databases and grant all privileges
     - Grant for dev database
         - `\c store_front`
@@ -65,11 +66,18 @@ POSTGRES_HOST = 127.0.0.1
 POSTGRES_DB =  store_front
 POSTGRES_USER = store-front
 POSTGRES_PASSWORD = Hey@storefront
+//Database test
+
+ENV=test
+POSTGRES_TEST_HOST = 127.0.0.1
+POSTGRES_TEST_DB =  store_front_test
+POSTGRES_TEST_USER = store-front
+POSTGRES_TEST_PASSWORD = Hey@storefront
+
 //Bcrypt pepper and salt
 SALT_ROUNDS = 10
 BCRYPT_PASSWORD = never-tell-a-friend-this
 TOKEN_SECRET = never-tell-a-friend-this
-
 ```
 ### Running Ports 
 After start up, the server will start on port `5000` || `5050` and the database on port `5432`
