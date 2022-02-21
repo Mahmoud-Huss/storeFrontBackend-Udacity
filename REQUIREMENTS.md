@@ -58,11 +58,8 @@ These are the notes from a meeting with the frontend developer that describe wha
 - user_id `BIGINT`
 - status of order (active or complete) `VARCHAR(64)`
 
-<<<<<<< HEAD
 ### Order_products
-=======
-#### Order_products
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
+
 
 - id `SERIAL PRIMARY KEY`
 - product_id `BIGINT`
