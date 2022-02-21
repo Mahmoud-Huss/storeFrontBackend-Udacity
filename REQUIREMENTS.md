@@ -20,11 +20,8 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Index [token required] `'/users/' [GET] (token)`
 - Show (args: id)[token required] `'/users/:id' [GET] (token)`
 - Create (args: User)[token required] `'/register' [POST] (token)`
-<<<<<<< HEAD
 - Authenticate (args: username, password) `'/signin' [POST] (token) Provide username and password in the body of the request` 
-=======
-- Authenticate (args: username, password) `'/signin' [POST] (token) provide username and password in the body of the request `
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
+
 - Delete (args: id) `'/users/:id' [Delete] (token)`
 
 #### Orders
@@ -41,17 +38,11 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Product
 
-<<<<<<< HEAD
 - id
 - name
 - price
 - [OPTIONAL] category
-=======
-- id `SERIAL PRIMARY KEY`
-- name `VARCHAR`
-- price `INTEGER`
-- [OPTIONAL] category `VARCHAR`
->>>>>>> f7c390b8ea4fe9397da1539e62c929559162251f
+
 
 #### User
 
